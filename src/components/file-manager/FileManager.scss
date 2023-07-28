@@ -1,5 +1,15 @@
 .file-manager {
     max-width: 1200px;
+    min-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-table{
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 600px;
+    }
 
     table {
         border-collapse: separate;
