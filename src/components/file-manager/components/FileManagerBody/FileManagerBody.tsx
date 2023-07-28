@@ -3,7 +3,7 @@ import FileManagerElement from "../FileManagerElement/FileManagerElement";
 
 function FileManagerBody({files}:{files: File[]}){
     return(
-        <tbody>
+        <tbody className="file-manager-body">
             {files.map((file, index) =>
                 <FileManagerElement key={index} file={file} />
             )}

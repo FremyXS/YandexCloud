@@ -1,5 +1,7 @@
 import React from "react";
 
+import './FileManagerHead.scss';
+
 function FileManagerHead() {
     return(
         <thead className="file-manager-head">
