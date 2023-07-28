@@ -1,0 +1,11 @@
+.file-manager-bottom{
+    position: relative;
+
+    &__counter{
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
