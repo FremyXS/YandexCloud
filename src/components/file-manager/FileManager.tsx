@@ -30,6 +30,10 @@ function FileManager() {
         setFiles(updateFilesList);
     }
 
+    const onClearFiles = () => {
+        setFiles([]);
+    }
+
     return (
         <div className="file-manager">
             <div className="file-manager-table">
@@ -45,6 +49,7 @@ function FileManager() {
             <FileManagerBottom
                 onChangeFiles={(event: ChangeEvent<HTMLInputElement>) => onChangeFiles(event)}
                 onUploadFiles={onUploadFiles}
+                onClearFiles={onClearFiles}
                 countFiles={files.length} />
         </div>
     )

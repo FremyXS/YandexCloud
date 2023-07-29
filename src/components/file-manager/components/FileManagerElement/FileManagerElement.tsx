@@ -8,13 +8,13 @@ function FileManagerElement({file, onClick}:{file:File, onClick: () => void}){
             <td>
                 <img height={80} src={FileImage} alt="file_icon" />
             </td>
-            <td className="file-manager-element__value">
+            <td className="file-manager-element__value max-size-100">
                 <span>{file.name}</span>
             </td>
-            <td className="file-manager-element__value">
+            <td className="file-manager-element__value max-size-50">
                 <span>{`${(file.size / 1024).toFixed(2)} KB`}</span>
             </td>
-            <td className="file-manager-element__value">
+            <td className="file-manager-element__value max-size-50">
                 <span>{file.type}</span>
             </td>
             <td>

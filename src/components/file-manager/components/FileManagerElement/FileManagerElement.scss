@@ -3,5 +3,13 @@
         font-size: 20px;
         font-weight: 500;
         color:rgb(186, 186, 186);
+        word-break:break-all;
+    }
+
+    .max-size-50{
+        max-width: 150px;
+    }
+    .max-size-100{
+        max-width: 500px;
     }
 }
