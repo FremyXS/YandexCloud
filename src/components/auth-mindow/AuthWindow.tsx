@@ -22,6 +22,11 @@ function AuthWindow() {
         window.open(CONFIRM_URL, "_blank")
     }
 
+    const handleOnClickExit = () => {
+        removeToken();
+        window.location.reload();
+    }
+
     const handleOnClickConfirm = async () => {
 
         const token = await confirmCode(code);
@@ -38,7 +43,8 @@ function AuthWindow() {
     if (isLogin) {
         return (
             <div className="auth-user">
-                {email}
+                <p>{email}</p>
+                <Button type="button" onClick={() => handleOnClickExit()}>Exit</Button>
             </div>
         );
     }
