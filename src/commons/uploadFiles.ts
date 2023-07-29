@@ -1,10 +1,11 @@
-import { upload } from "./api/resources";
+import { NAME_FOLDER } from "../config";
+import { checkFolder, createFolder, upload } from "./api/resources";
 
 function subtractOne(files: File[]): Promise<any[]> {
     return new Promise((resolve) => {
         setTimeout(() => {
             const result = files.map((file) => {
-                return upload(file);
+                return upload(NAME_FOLDER, file);
             });
             resolve(result);
         }, 0);
@@ -12,6 +13,14 @@ function subtractOne(files: File[]): Promise<any[]> {
 }
 
 export const uploadFiles = async (files: File[]) => {
+
+    const isFolder = await checkFolder(NAME_FOLDER);
+
+    if(!isFolder){
+        await createFolder(NAME_FOLDER);
+        console.log(`Create folder: ${NAME_FOLDER}`);
+    }
+
     const promises: Promise<number[]>[] = [];
 
     for (let i = 0; i < files.length; i++) {
