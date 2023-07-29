@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from "react";
 
-import './FileManagerBottom.scss'
+import ButtonUploadFile from "../../../ButtonUploadFile/ButtonUploadFile";
+import './FileManagerBottom.scss';
 
 interface IFileManagerBottom {
     onChangeFiles: (event: ChangeEvent<HTMLInputElement>) => void,
@@ -12,7 +13,7 @@ function FileManagerBottom({ onChangeFiles, onUploadFiles, countFiles }: IFileMa
     return (
         <div className="file-manager-bottom">
             <div className="file-manager-bottom__buttons">
-                <input type='file' multiple onChange={onChangeFiles} />
+                <ButtonUploadFile onChangeFiles={(event: React.ChangeEvent<HTMLInputElement>) => onChangeFiles(event)}/>
                 <button type="button" onClick={onUploadFiles}>Upload Files</button>
             </div>
             <span className="file-manager-bottom__counter">
