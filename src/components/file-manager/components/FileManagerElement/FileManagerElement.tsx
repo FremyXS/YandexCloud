@@ -2,7 +2,7 @@ import React from "react";
 import FileImage from '../../../../temps/img/file_image.jpg';
 import './FileManagerElement.scss'
 
-function FileManagerElement({file}:{file:File}){
+function FileManagerElement({file, onClick}:{file:File, onClick: () => void}){
     return (
         <tr className="file-manager-element">
             <td>
@@ -16,6 +16,9 @@ function FileManagerElement({file}:{file:File}){
             </td>
             <td className="file-manager-element__value">
                 <span>{file.type}</span>
+            </td>
+            <td>
+                <button type="button" onClick={onClick}>Delete</button>
             </td>
         </tr>
     )

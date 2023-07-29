@@ -6,6 +6,7 @@ import { checkedCountFiles } from "../../commons/checkedCountFiles";
 import { uploadFiles } from "../../commons/uploadFiles";
 
 import './FileManager.scss';
+import FileManagerElement from "./components/FileManagerElement/FileManagerElement";
 
 function FileManager() {
     const [files, setFiles] = useState<File[]>([])
@@ -24,12 +25,21 @@ function FileManager() {
         uploadFiles(files);
     }
 
+    const onDeleteFile = (index: number) => {
+        const updateFilesList = [...files.slice(0, index), ...files.slice(index + 1, files.length)];
+        setFiles(updateFilesList);
+    }
+
     return (
         <div className="file-manager">
             <div className="file-manager-table">
                 <table>
                     <FileManagerHead />
-                    <FileManagerBody files={files} />
+                    <FileManagerBody>
+                        {files.map((file, index) =>
+                            <FileManagerElement key={index} file={file} onClick={() => onDeleteFile(index)}/>
+                        )}
+                    </FileManagerBody>
                 </table>
             </div>
             <FileManagerBottom

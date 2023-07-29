@@ -1,12 +1,9 @@
-import React from "react";
-import FileManagerElement from "../FileManagerElement/FileManagerElement";
+import React, { ReactNode } from "react";
 
-function FileManagerBody({files}:{files: File[]}){
-    return(
+function FileManagerBody({ children }: { children: ReactNode }) {
+    return (
         <tbody className="file-manager-body">
-            {files.map((file, index) =>
-                <FileManagerElement key={index} file={file} />
-            )}
+            {children}
         </tbody>
     )
 }

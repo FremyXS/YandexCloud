@@ -18,6 +18,9 @@ function FileManagerHead() {
                 <td>
                     <span>Type</span>
                 </td>
+                <td>
+                <span style={{display:"none"}}>Delete</span>
+                </td>
             </tr>
         </thead>
     )
