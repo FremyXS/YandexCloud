@@ -4,9 +4,9 @@ import FileManagerBody from "./components/FileManagerBody/FileManagerBody";
 import FileManagerBottom from "./components/FileManagerBottom/FileManagerBottom";
 import { checkedCountFiles } from "../../commons/checkedCountFiles";
 import { uploadFiles } from "../../commons/uploadFiles";
+import FileManagerElement from "./components/FileManagerElement/FileManagerElement";
 
 import './FileManager.scss';
-import FileManagerElement from "./components/FileManagerElement/FileManagerElement";
 
 function FileManager() {
     const [files, setFiles] = useState<File[]>([])

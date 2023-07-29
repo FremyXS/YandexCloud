@@ -1,7 +1,7 @@
 import { NAME_FOLDER } from "../config";
 import { checkFolder, createFolder, upload } from "./api/resources";
 
-function subtractOne(files: File[]): Promise<any[]> {
+function uploadOneFile(files: File[]): Promise<any[]> {
     return new Promise((resolve) => {
         setTimeout(() => {
             const result = files.map((file) => {
@@ -24,13 +24,13 @@ export const uploadFiles = async (files: File[]) => {
     const promises: Promise<number[]>[] = [];
 
     for (let i = 0; i < files.length; i++) {
-        promises.push(subtractOne([files[i]]));
+        promises.push(uploadOneFile([files[i]]));
     }
 
     Promise.all(promises)
         .then((results) => {
-            const updatedNumbers = results.flat();
-            console.log(updatedNumbers);
+            const uploadNumbers = results.flat();
+            console.log(uploadNumbers);
         })
         .catch((error) => console.error(error));
 }
