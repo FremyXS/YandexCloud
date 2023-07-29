@@ -1,0 +1,36 @@
+.component-file-upload {
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+
+    input {
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    &::after {
+        content: '';
+        background-image: url(../../temps/icons/upload_file_ic.svg);
+        background-size: cover;
+        height: 30px;
+        width: 30px;
+        display: block;
+        position: absolute;
+        top: calc(50% - 15px);
+        left: calc(50% - 15px);
+
+        filter: brightness(0) saturate(100%) invert(98%) sepia(0%) saturate(5%) hue-rotate(164deg) brightness(103%) contrast(103%);
+    }
+}
