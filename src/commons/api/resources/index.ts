@@ -24,11 +24,12 @@ export const createFolder = async (folderName: string) => {
 }
 
 export const upload = async (folderName: string, file: File) => {
-    try {
+    const correctFileName = `${new Date().getFullYear()} - ${new Date().getDate()} - ${new Date().getDay()} - ${new Date().getTime()} - ${file.name}`;
 
+    try {
         const { data: downloadPath } = await api().get('resources/upload', {
             params: {
-                path: `${folderName}/${file.name}`,
+                path: `${folderName}/${correctFileName}`,
                 overwrite: false
             }
         })
