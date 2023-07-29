@@ -1,15 +1,18 @@
-import axios from "axios"
+import axios from "axios";
+import { getToken } from "../token";
+import { BASE_URL } from '../../config';
 
-const API_TOKEN = 'xxx';
-const BaseUrl = 'https://cloud-api.yandex.net/v1/disk/'
+const headers = {
+    Authorization: `OAuth ${getToken()}`,
+    "Content-Type": 'application/json',
+    Accept: 'application/json',
+}
 
 export const api = () => {
+    console.log(getToken());
+
     return axios.create({
-        baseURL: BaseUrl,
-        headers:{
-            Authorization: `OAuth ${API_TOKEN}`,
-            "Content-Type": 'application/json',
-            Accept: 'application/json',
-        }
+        baseURL: BASE_URL,
+        headers: headers
     })
 }
